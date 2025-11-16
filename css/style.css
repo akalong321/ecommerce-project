@@ -1,0 +1,119 @@
+/* * Copyright © 2025 Đậu Việt Long
+ * All rights reserved.
+ */
+
+/* --- 1. Reset & Thiết Lập Chung --- */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+main{
+    max-width: 1200px;
+    margin: 20px auto; /* Căn giữa */
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- 2. Style Header (Dùng Flexbox) --- */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+}
+.logo{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+}
+.nav-links li{
+    margin-left: 20px;
+}
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.nav-links a:hover{
+    color: #ff6347; /* Màu cà chua */
+}
+
+/* --- 3. Style Footer --- */
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
+
+/* --- 4. Style Lưới Sản Phẩm (Dùng CSS Grid "xịn") --- */
+.product-grid{
+    display: grid;
+    /* "Thần chú" Responsive (Giống App Recipe) */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;/* Khoảng cách giữa các thẻ */
+}
+/* --- 5. Style cho "Thẻ" (Sẽ do JS "vẽ" ra) --- */
+.product-card{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;/* Dùng Flexbox... */
+    flex-direction: column; /* ...để xếp thẻ theo chiều DỌC */
+    transition: transform 0.2s;
+}
+.product-card:hover{
+    transform: translateY(-5px);
+}
+.product-card img{
+    width: 100%;
+    height: 220px; /* Cố định chiều cao ảnh */
+    object-fit: cover; /* Giữ ảnh không bị méo */
+}
+.product-card h3{
+    font-size: 18px;
+    padding: 15px;
+/* Giới hạn tên sản phẩm chỉ 2 dòng (kỹ thuật "xịn") */
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+height: 70px; /* Căn chiều cao cho 2 dòng */
+}
+.product-card p.price{
+    font-size: 20px;
+    font-weight: bold;
+    color: #d0021b; /* Màu đỏ */
+    padding: 0 15px 15px 15px;
+    margin-top: auto; /* "Thần chú" đẩy giá xuống dưới cùng */
+}
+.product-card .btn-detail{
+    display: block;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.product-card .btn-detail:hover{
+    background-color: #0056b3;
+}
